@@ -1,6 +1,6 @@
-# POS MCP Server
+# BD MCP Server
 
-Servidor MCP (Model Context Protocol - Anthropic) para POS — expone herramientas para consultar una base de datos MySQL en modo solo-lectura desde un agente/cliente MCP. Proyecto construido con Node.js + TypeScript y gestionado con pnpm.
+Servidor MCP (Model Context Protocol - Anthropic) para bases de datos — expone herramientas para consultar una base de datos MySQL en modo solo-lectura desde un agente/cliente MCP. Proyecto construido con Node.js + TypeScript y gestionado con pnpm.
 
 ## Resumen
 
