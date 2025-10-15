@@ -57,7 +57,14 @@ export class DatabaseManager {
 
             try {
                 await connection.query('SET SESSION TRANSACTION READ ONLY');
-                const [rows] = await connection.query(sql + ' LIMIT 100 ', params);
+                
+                // Solo agregar LIMIT a consultas SELECT que no tengan LIMIT ya
+                let finalSql = sql;
+                if (normalizedSql.startsWith('SELECT') && !normalizedSql.includes('LIMIT')) {
+                    finalSql = sql + ' LIMIT 100';
+                }
+                
+                const [rows] = await connection.query(finalSql, params);
                 return rows as any[];
             } finally {
                 connection.release();
